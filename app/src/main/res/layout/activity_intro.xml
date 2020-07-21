@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    tools:context=".Vista.IntroActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/linea1"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/white_line" />
+
+        <View
+            android:id="@+id/linea2"
+            android:layout_width="20dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/linea1"
+            android:background="@drawable/linea2" />
+
+        <View
+            android:id="@+id/linea3"
+            android:layout_width="20dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/linea2"
+            android:background="@drawable/white_line" />
+
+        <View
+            android:id="@+id/linea4"
+            android:layout_width="20dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/linea3"
+            android:background="@drawable/linea3" />
+
+        <View
+            android:id="@+id/linea5"
+            android:layout_width="20dp"
+            android:layout_height="220dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/linea4"
+            android:background="@drawable/linea2" />
+
+        <View
+            android:id="@+id/linea6"
+            android:layout_width="20dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/linea5"
+            android:background="@drawable/white_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logoconcirculo">
+
+        </ImageView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:text="Mercado Móvil"
+                android:textColor="#8A8585"
+                android:textSize="24sp"
+                app:fontFamily="@font/calligraffitti" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
+

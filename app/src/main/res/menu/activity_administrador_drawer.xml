@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="PrincipalAdministrador">
+        <menu>
+            <item
+                android:id="@+id/nav_unidades"
+                android:icon="@drawable/ic_baseline_add_circle_outline_24"
+                android:title="@string/gestionar_unidades" />
+            <item
+                android:id="@+id/nav_enviar_mensaje"
+                android:icon="@drawable/ic_baseline_email_24"
+                android:title="@string/enviar_mensaje" />
+            <item
+                android:id="@+id/nav_agregar_usuario"
+                android:icon="@drawable/ic_baseline_account_circle_24"
+                android:title="@string/agregar_usuario" />
+            <item
+                android:id="@+id/nav_cerrarseion"
+                android:icon="@drawable/ic_baseline_exit_to_app_24"
+                android:title="@string/cerrar_sesi_n" />
+        </menu>
+    </item>
+</menu>

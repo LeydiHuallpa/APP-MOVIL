@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Rikuwa_Cliente</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="a_n_no_estas_registrado">¿Aún no estas registrado?</string>
+    <string name="registrate_aqui">REGISTRATE AQUI</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="crear_cuenta">CREAR CUENTA</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="ya_tienes_cuenta">¿Ya tienes cuenta?</string>
+    <string name="unidades">Unidades</string>
+    <string name="productos">Productos</string>
+    <string name="perfil">Perfil</string>
+    <string name="titulo_splash">Rikuwa</string>
+    <string name="splash_mensaje">Mercado Movil</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="gestionar_unidades">Gestionar Unidades</string>
+    <string name="enviar_mensaje">Enviar Mensaje</string>
+    <string name="agregar_usuario">Agregar Usuario</string>
+    <string name="administrador">Administrador</string>
+</resources>

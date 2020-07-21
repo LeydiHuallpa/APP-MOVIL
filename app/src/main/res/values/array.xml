@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="zona">
+        <item>Seleccione su zona</item>
+        <item>Alto de la Alianza</item>
+        <item>Calana</item>
+        <item>Ciudad Nueva</item>
+        <item>Coronel Gregorio Albarracín Lanchipa</item>
+        <item>Inclan</item>
+        <item>La Yarada-Los Palos</item>
+        <item>Pachia</item>
+        <item>Palca</item>
+        <item>Pocollay</item>
+        <item>Sama</item>
+        <item>Tacna</item>
+    </string-array>
+
+    <string-array name="tipoUsuario">
+        <item>Mercader</item>
+        <item>Cliente</item>
+    </string-array>
+
+</resources>
