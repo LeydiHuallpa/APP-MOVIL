@@ -34,7 +34,6 @@ public class LoginModel implements LoginInterface.Modelo {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                     final Usuario[] usuarioObj = {new Usuario()};
                     Query query = databaseReference.child("usuario").orderByChild("email").equalTo(obj.getEmail());

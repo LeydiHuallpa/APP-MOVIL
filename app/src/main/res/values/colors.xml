@@ -19,4 +19,11 @@
     <color name="color13">#E1B696</color>
     <color name="color14">#EBE6E2</color>
     <color name="color15">#D9EBFB</color>
+
+
+
+    <color name="estadoUnidad1">#009E0F</color>
+    <color name="estadoUnidad2">#FFFF00</color>
+    <color name="estadoUnidad3">#CC0000</color>
+
 </resources>

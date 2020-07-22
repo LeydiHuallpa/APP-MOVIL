@@ -3,6 +3,7 @@ package com.example.rikuwaapp.Model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.rikuwaapp.Entidad.Mercado;
 import com.example.rikuwaapp.Entidad.Usuario;
 import com.example.rikuwaapp.Interface.RegistroInterface;
 import com.google.android.gms.tasks.OnCompleteListener;

@@ -1,8 +1,8 @@
 package com.example.rikuwaapp.Interface;
 
-import com.example.rikuwaapp.Entidad.Usuario;
+import com.example.rikuwaapp.Entidad.Unidad;
 
-public interface RegistroInterface {
+public interface EditarUnidadInterface {
     interface Vista {
         void mtdMostrarProgress();
 
@@ -10,27 +10,21 @@ public interface RegistroInterface {
 
         void mtdHandleRegistro();
 
-        boolean mtdValidarEmail();
-
-        boolean mtdValidarPassword();
-
-        void mtdOnRegistro();
+        void mtdOnEditar();
 
         void mtdOnError(String error);
     }
 
     interface Presentador {
-        void mtdOnRegistro(Usuario obj);
+        void mtdOnEditar(Unidad obj);
     }
 
     interface Modelo {
-        void mtdOnRegistro(Usuario obj);
+        void mtdOnEditar(Unidad obj);
     }
 
     interface TaskListener {
         void mtdOnSuccess();
         void mtdOnError(String errror);
-
     }
-
 }

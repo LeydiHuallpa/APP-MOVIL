@@ -9,7 +9,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -21,8 +20,6 @@ import com.example.rikuwaapp.Presentador.RegistroPresentador;
 import com.example.rikuwaapp.R;
 
 public class RegistroActivity extends AppCompatActivity implements View.OnClickListener, RegistroInterface.Vista {
-
-    Spinner spinner;
     EditText et_correo, et_password;
     Button btn_ir_crearCuenta, btnSendToLogin;
     MaterialDialog dialog;
@@ -43,7 +40,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         et_password = findViewById(R.id.et_password);
         btn_ir_crearCuenta = findViewById(R.id.btn_ir_crearCuenta);
         btnSendToLogin = findViewById(R.id.btnSendToLogin);
-        spinner = findViewById(R.id.sp_TipoUsuario);
         MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
                 .title("CARGANDO")
                 .content("Espere porfavor ...")
@@ -85,8 +81,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             Usuario obj = new Usuario();
             obj.setEmail(et_correo.getText().toString().trim());
             obj.setPassword(et_password.getText().toString().trim());
-            obj.setTipoUsuario(spinner.getSelectedItem().toString());
-//            Toast.makeText(this, obj.getEmail(), Toast.LENGTH_SHORT).show();
+            obj.setTipoUsuario("Cliente");
             presentador.mtdOnRegistro(obj);
         }
     }

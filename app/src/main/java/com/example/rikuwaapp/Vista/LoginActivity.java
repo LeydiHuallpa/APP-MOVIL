@@ -110,18 +110,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
                 startActivity(i);
                 break;
         }
-
     }
-
-//    @Override
-//    public void mtdOnLogin(String tipoUsuario) {
-////        Usuario obj = new Usuario();
-////        obj.setEmail(miEditTextEmail.getText().toString().trim());
-////        Helper.CapturarDataUsuarioSesion(this, obj);
-////        Intent i = new Intent(LoginActivity.this, MapActivity.class);
-////        startActivity(i);
-//        Toast.makeText(this, tipoUsuario, Toast.LENGTH_SHORT).show();
-//    }
 
     @Override
     public void mtdOnError(String error) {

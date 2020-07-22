@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="zona">
-        <item>Seleccione su zona</item>
         <item>Alto de la Alianza</item>
         <item>Calana</item>
         <item>Ciudad Nueva</item>
