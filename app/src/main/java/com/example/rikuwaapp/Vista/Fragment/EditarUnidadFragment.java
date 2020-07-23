@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.rikuwaapp.Entidad.Unidad;
 import com.example.rikuwaapp.Entidad.Usuario;
+import com.example.rikuwaapp.Entidad.Zona;
 import com.example.rikuwaapp.Interface.EditarUnidadInterface;
 import com.example.rikuwaapp.Presentador.EditarUnidadPresentador;
 import com.example.rikuwaapp.Presentador.LoginPresentador;
@@ -119,6 +120,18 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
         return posicion;
     }
 
+    private Zona zonaUbicacionDetalle(String zona) {
+        Zona obj = new Zona();
+        List<Zona> lista = Zona.listaZonaUbicacion();
+        for (Zona objzona : lista) {
+            if (objzona.getUbicacion().equals(zona)) {
+                obj = objzona;
+                break;
+            }
+        }
+        return obj;
+    }
+
     private void cargaData(String nombrePlacaEntrante) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -164,7 +177,7 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
         String nombreunidad = txtNombreUnidad.getText().toString();
         String nombreplaca = txtnombrePlaca.getText().toString();
         String zona = spinner.getSelectedItem().toString();
-        String urlurl = "";
+        String urlurl = uri == null ? "" : uri.toString();
         if (nombreplaca.isEmpty()) {
             Toast.makeText(getActivity(), "Ingrese un nombre de placa", Toast.LENGTH_SHORT).show();
             return;
@@ -177,18 +190,24 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
             Toast.makeText(getActivity(), "Seleccione una zona", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (urlurl.isEmpty()) {
+            Toast.makeText(getActivity(), "Seleccione una imagen", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Zona objzona = zonaUbicacionDetalle(zona);
+
 
         final Unidad objunidad = new Unidad();
         objunidad.setNombreUnidad(nombreunidad);
         objunidad.setNombrePlaca(nombreplaca);
         objunidad.setZonaUnidad(zona);
+        objunidad.setLatitud(objzona.getLatitud());
+        objunidad.setLongitud(objzona.getLongitud());
 
         final StorageReference filepath = storageReference.child("fotos").child(uri.getLastPathSegment());
         filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(getActivity(), "Se ha subido", Toast.LENGTH_SHORT).show();
-                //DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                 filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -198,10 +217,10 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
                         presentador.mtdOnEditar(objunidad);
                     }
                 });
-
             }
         });
     }
+
 
     @Override
     public void mtdOnEditar() {

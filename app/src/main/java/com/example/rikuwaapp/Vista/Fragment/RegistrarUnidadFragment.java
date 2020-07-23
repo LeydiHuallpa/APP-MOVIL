@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.rikuwaapp.Entidad.Unidad;
+import com.example.rikuwaapp.Entidad.Zona;
 import com.example.rikuwaapp.Interface.EditarUnidadInterface;
 import com.example.rikuwaapp.Interface.RegistrarUnidadInterface;
 import com.example.rikuwaapp.Presentador.EditarUnidadPresentador;
@@ -28,6 +29,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -51,6 +54,18 @@ public class RegistrarUnidadFragment extends Fragment implements RegistrarUnidad
         View view = inflater.inflate(R.layout.fragment_registrar_unidad, container, false);
         setViews(view);
         return view;
+    }
+
+    private Zona zonaUbicacionDetalle(String zona) {
+        Zona obj = new Zona();
+        List<Zona> lista = Zona.listaZonaUbicacion();
+        for (Zona objzona : lista) {
+            if (objzona.getUbicacion().equals(zona)) {
+                obj = objzona;
+                break;
+            }
+        }
+        return obj;
     }
 
     private void setViews(View view) {
@@ -117,11 +132,16 @@ public class RegistrarUnidadFragment extends Fragment implements RegistrarUnidad
             Toast.makeText(getActivity(), "Seleccione una imagen", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        Zona objzona = zonaUbicacionDetalle(zona);
+
         final Unidad objunidad = new Unidad();
         objunidad.setNombreUnidad(nombreunidad);
         objunidad.setNombrePlaca(nombreplaca);
         objunidad.setNombrePlacatmp(nombreplaca);
         objunidad.setZonaUnidad(zona);
+        objunidad.setLatitud(objzona.getLatitud());
+        objunidad.setLongitud(objzona.getLongitud());
 
         final StorageReference filepath = storageReference.child("fotos").child(uri.getLastPathSegment());
         filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
