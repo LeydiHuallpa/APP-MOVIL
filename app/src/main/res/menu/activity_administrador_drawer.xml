@@ -8,13 +8,13 @@
                 android:icon="@drawable/ic_baseline_add_circle_outline_24"
                 android:title="@string/gestionar_unidades" />
             <item
-                android:id="@+id/nav_enviar_mensaje"
-                android:icon="@drawable/ic_baseline_email_24"
-                android:title="@string/enviar_mensaje" />
+                android:id="@+id/nav_productos_gestionar"
+                android:icon="@drawable/ic_baseline_add_shopping_cart_24"
+                android:title="@string/productos" />
             <item
-                android:id="@+id/nav_agregar_usuario"
-                android:icon="@drawable/ic_baseline_account_circle_24"
-                android:title="@string/agregar_usuario" />
+                android:id="@+id/nav_horarios"
+                android:icon="@drawable/ic_baseline_access_time_24"
+                android:title="@string/horarios" />
             <item
                 android:id="@+id/nav_cerrarseion"
                 android:icon="@drawable/ic_baseline_exit_to_app_24"

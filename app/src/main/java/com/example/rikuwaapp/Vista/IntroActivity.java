@@ -62,19 +62,16 @@ public class IntroActivity extends AppCompatActivity {
                 if (Helper.VerificarSesionActiva(IntroActivity.this)) {
                     String tipoUsuario = Helper.ObtenerValorAtributoSharedPreferences(IntroActivity.this, "tipoUsuario");
                     Intent intent;
-//                    switch (tipoUsuario) {
-//                        case "Administrador":
-//                            intent = new Intent(IntroActivity.this, AdministradorActivity.class);
-//                            startActivity(intent);
-//                            break;
-//                        default:
-//                            intent = new Intent(IntroActivity.this, MapActivity.class);
-//                            startActivity(intent);
-//                            break;
-//                    }
-                    intent = new Intent(IntroActivity.this, MapActivity.class);
-                    startActivity(intent);
-
+                    switch (tipoUsuario) {
+                        case "Administrador":
+                            intent = new Intent(IntroActivity.this, AdministradorActivity.class);
+                            startActivity(intent);
+                            break;
+                        default:
+                            intent = new Intent(IntroActivity.this, MapActivity.class);
+                            startActivity(intent);
+                            break;
+                    }
                 } else {
                     Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
                     startActivity(intent);

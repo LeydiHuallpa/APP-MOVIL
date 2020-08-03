@@ -49,7 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class MapActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+public class MapActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     NavigationView navigationView;
     DrawerLayout drawerLayout;
@@ -71,9 +71,6 @@ public class MapActivity extends AppCompatActivity implements NavigationView.OnN
 
         client = LocationServices.getFusedLocationProviderClient(this);
         obtenerLocalizacion();
-//        if (ActivityCompat.checkSelfPermission(MapActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//            obtenerLocalizacion();
-//        }
     }
 
     private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId) {
@@ -87,13 +84,6 @@ public class MapActivity extends AppCompatActivity implements NavigationView.OnN
 
     private void obtenerLocalizacion() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         Task<Location> task = client.getLastLocation();
@@ -115,27 +105,33 @@ public class MapActivity extends AppCompatActivity implements NavigationView.OnN
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     unidadList.clear();
                                     map.clear();
-
                                     Marker mymarker = null;
                                     LatLng myposition = new LatLng(latitud_locacion, longitud_locacion);
                                     mymarker = googleMap.addMarker(new MarkerOptions().position(myposition).title("Mi posición"));
                                     CameraPosition camPos = new CameraPosition(myposition, 16, 0, 0);
-//                                    googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(camPos));
                                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(myposition, 18));
                                     mymarker.showInfoWindow();
-
-                                    //Toast.makeText(MapActivity.this, "Change", Toast.LENGTH_SHORT).show();
                                     for (DataSnapshot obj : snapshot.getChildren()) {
-                                        //unidadList.add(obj.getValue(Unidad.class));
                                         Unidad objunidad = new Unidad();
                                         objunidad = obj.getValue(Unidad.class);
-
                                         Marker marker = null;
                                         LatLng position = new LatLng(objunidad.getLatitud(), objunidad.getLongitud());
                                         marker = googleMap.addMarker(new MarkerOptions().position(position).title(objunidad.getNombreUnidad()));
                                     }
-                                }
 
+                                    map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                                        @Override
+                                        public boolean onMarkerClick(Marker marker) {
+                                            String titulo = marker.getTitle();
+                                            if (!titulo.equals("Mi Posición")){
+                                                Intent intent = new Intent(MapActivity.this, MercadoDetalleActivity.class);
+                                                intent.putExtra("mercado", titulo);
+                                                startActivity(intent);
+                                            }
+                                            return false;
+                                        }
+                                    });
+                                }
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -158,10 +154,9 @@ public class MapActivity extends AppCompatActivity implements NavigationView.OnN
                 i = new Intent(MapActivity.this, MapActivity.class);
                 startActivity(i);
                 return false;
-            case R.id.nav_horarios:
-//                i = new Intent(MapActivity.this, MapActivity.class);
-//                startActivity(i);
-                Toast.makeText(this, "Click Horarios", Toast.LENGTH_SHORT).show();
+            case R.id.nav_horarios_detalle:
+                i = new Intent(MapActivity.this, HorariosActivity.class);
+                startActivity(i);
                 return false;
             case R.id.nav_cerrarseion:
                 Helper.LimpiarSharedPreferences(this);
@@ -170,48 +165,5 @@ public class MapActivity extends AppCompatActivity implements NavigationView.OnN
                 break;
         }
         return true;
-    }
-
-
-    @Override
-    public void onMapReady(final GoogleMap googleMap) {
-//        map = googleMap;
-//        map.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.stylemap));
-////        LatLng sydney = new LatLng(-34,15);
-////        map.addMarker(new MarkerOptions().position(sydney).title("Sydney"));
-////        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//
-//        Marker marker = null;
-//        LatLng position = new LatLng(latitud_locacion, longitud_locacion);
-//        marker = googleMap.addMarker(new MarkerOptions().position(position).title("Mi posición"));
-//
-//        databaseReference.child("unidad").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                unidadList.clear();
-//                map.clear();
-//                Toast.makeText(MapActivity.this, "Change", Toast.LENGTH_SHORT).show();
-//                for (DataSnapshot obj : snapshot.getChildren()) {
-//                    //unidadList.add(obj.getValue(Unidad.class));
-//                    Unidad objunidad = new Unidad();
-//                    objunidad = obj.getValue(Unidad.class);
-//
-//                    Marker marker = null;
-//                    LatLng position = new LatLng(objunidad.getLatitud(), objunidad.getLongitud());
-//                    marker = googleMap.addMarker(new MarkerOptions().position(position).title(objunidad.getNombreUnidad()));
-////                    if (objunidad.getNombreUnidad().equals(paisFocusDefecto)) {
-////                        CameraPosition camPos = new CameraPosition(position, 5, 0, 0);
-////                        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(camPos));
-////                        marker.showInfoWindow();
-////                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
     }
 }

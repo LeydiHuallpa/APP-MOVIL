@@ -8,8 +8,8 @@
     <string name="crear_cuenta">CREAR CUENTA</string>
     <string name="iniciar_sesi_n">Iniciar Sesión</string>
     <string name="ya_tienes_cuenta">¿Ya tienes cuenta?</string>
-    <string name="unidades">Unidades</string>
-    <string name="productos">Productos</string>
+    <string name="unidades">Visualizar Unidades</string>
+    <string name="productos">Visualizar Productos</string>
     <string name="perfil">Perfil</string>
     <string name="titulo_splash">Rikuwa</string>
     <string name="splash_mensaje">Mercado Movil</string>
@@ -20,4 +20,8 @@
     <string name="administrador">Administrador</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registrar_producto">REGISTRAR PRODUCTO</string>
+    <string name="horarios">Horarios</string>
+    <string name="registrar_horario">REGISTRAR HORARIO</string>
+    <string name="horarios_detalle">Visualizar Horarios</string>
 </resources>

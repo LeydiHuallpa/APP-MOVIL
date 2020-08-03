@@ -2,9 +2,27 @@ package com.example.rikuwaapp.Entidad;
 
 public class Producto {
     String nombreUnidad;
+    String nombreProducto;
     String imagenReferencial;
     double precioProducto;
     String cateogoriaProducto;
+    String nombreProductotmp;
+
+    public String getNombreProductotmp() {
+        return nombreProductotmp;
+    }
+
+    public void setNombreProductotmp(String nombreProductotmp) {
+        this.nombreProductotmp = nombreProductotmp;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
 
     public String getNombreUnidad() {
         return nombreUnidad;

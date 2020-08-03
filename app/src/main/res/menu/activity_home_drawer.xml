@@ -12,13 +12,9 @@
                 android:icon="@drawable/ic_baseline_add_shopping_cart_24"
                 android:title="@string/productos" />
             <item
-                android:id="@+id/nav_horarios"
+                android:id="@+id/nav_horarios_detalle"
                 android:icon="@drawable/ic_baseline_access_time_24"
-                android:title="Horarios" />
-            <item
-                android:id="@+id/nav_perfil"
-                android:icon="@drawable/ic_baseline_account_circle_24"
-                android:title="@string/perfil" />
+                android:title="@string/horarios_detalle" />
             <item
                 android:id="@+id/nav_cerrarseion"
                 android:icon="@drawable/ic_baseline_exit_to_app_24"

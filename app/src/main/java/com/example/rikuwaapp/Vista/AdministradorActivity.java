@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.rikuwaapp.Config.Helper;
 import com.example.rikuwaapp.R;
+import com.example.rikuwaapp.Vista.Fragment.HorarioFragment;
+import com.example.rikuwaapp.Vista.Fragment.ProductosFragment;
 import com.example.rikuwaapp.Vista.Fragment.UnidadFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,12 +25,13 @@ public class AdministradorActivity extends AppCompatActivity implements Navigati
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     UnidadFragment unidadFragment;
+    ProductosFragment productosFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrador);
-        drawerLayout = findViewById(R.id.drawerLayout);
+        drawerLayout = findViewById(R.id.drawerLayoutAdministrador);
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
         InicializarFragment();
@@ -42,11 +46,13 @@ public class AdministradorActivity extends AppCompatActivity implements Navigati
                 unidadFragment = new UnidadFragment();
                 setFragment(unidadFragment);
                 return true;
-            case R.id.nav_enviar_mensaje:
-                Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+            case R.id.nav_productos_gestionar:
+                ProductosFragment productosFragment = new ProductosFragment();
+                setFragment(productosFragment);
                 return true;
-            case R.id.nav_agregar_usuario:
-                Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+            case R.id.nav_horarios:
+                HorarioFragment horarioFragment = new HorarioFragment();
+                setFragment(horarioFragment);
                 return true;
             case R.id.nav_cerrarseion:
                 Helper.LimpiarSharedPreferences(this);
@@ -57,7 +63,7 @@ public class AdministradorActivity extends AppCompatActivity implements Navigati
         return false;
     }
 
-    private void InicializarFragment(){
+    private void InicializarFragment() {
         UnidadFragment perfilFragment = new UnidadFragment();
         FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction2.replace(R.id.fragment_container, perfilFragment);

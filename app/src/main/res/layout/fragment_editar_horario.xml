@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Vista.Fragment.EditarHorarioFragment">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora de Inicio" />
+
+    <EditText
+        android:id="@+id/txtHoraInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora Fin" />
+
+    <EditText
+        android:id="@+id/txtHoraFin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccione los días de atención" />
+
+    <CheckBox
+        android:id="@+id/chkLunes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lunes"/>
+    <CheckBox
+        android:id="@+id/chkMartes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Martes"/>
+    <CheckBox
+        android:id="@+id/chkMiercoles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Miercoles"/>
+    <CheckBox
+        android:id="@+id/chkJueves"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jueves"/>
+    <CheckBox
+        android:id="@+id/chkViernes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Viernes"/>
+    <CheckBox
+        android:id="@+id/chkSabado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sabado"/>
+    <CheckBox
+        android:id="@+id/chkDomingo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Domingo"/>
+
+
+    <Button
+        android:id="@+id/btnEditarHorario"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EDITAR HORARIO" />
+
+
+</LinearLayout>
