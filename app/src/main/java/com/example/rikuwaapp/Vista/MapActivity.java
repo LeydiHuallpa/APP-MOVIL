@@ -154,6 +154,10 @@ public class MapActivity extends AppCompatActivity implements NavigationView.OnN
                 i = new Intent(MapActivity.this, MapActivity.class);
                 startActivity(i);
                 return false;
+            case R.id.nav_productos:
+                i = new Intent(MapActivity.this,ProductosActivity.class);
+                startActivity(i);
+                return false;
             case R.id.nav_horarios_detalle:
                 i = new Intent(MapActivity.this, HorariosActivity.class);
                 startActivity(i);

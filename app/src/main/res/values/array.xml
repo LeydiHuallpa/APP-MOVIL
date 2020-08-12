@@ -24,4 +24,13 @@
         <item>Cliente</item>
     </string-array>
 
+
+    <string-array name="cargos">
+        <item>Chofer</item>
+        <item>Copiloto</item>
+        <item>Otro</item>
+    </string-array>
+
+
+
 </resources>

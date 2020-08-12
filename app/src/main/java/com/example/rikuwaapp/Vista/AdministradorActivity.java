@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.rikuwaapp.Config.Helper;
 import com.example.rikuwaapp.R;
 import com.example.rikuwaapp.Vista.Fragment.HorarioFragment;
+import com.example.rikuwaapp.Vista.Fragment.PersonalFragment;
 import com.example.rikuwaapp.Vista.Fragment.ProductosFragment;
 import com.example.rikuwaapp.Vista.Fragment.UnidadFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -53,6 +54,10 @@ public class AdministradorActivity extends AppCompatActivity implements Navigati
             case R.id.nav_horarios:
                 HorarioFragment horarioFragment = new HorarioFragment();
                 setFragment(horarioFragment);
+                return true;
+            case R.id.nav_personal:
+                PersonalFragment personalFragment = new PersonalFragment();
+                setFragment(personalFragment);
                 return true;
             case R.id.nav_cerrarseion:
                 Helper.LimpiarSharedPreferences(this);

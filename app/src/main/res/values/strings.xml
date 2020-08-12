@@ -24,4 +24,6 @@
     <string name="horarios">Horarios</string>
     <string name="registrar_horario">REGISTRAR HORARIO</string>
     <string name="horarios_detalle">Visualizar Horarios</string>
+    <string name="registrar_personal">REGISTRAR PERSONAL</string>
+    <string name="gestionar_personal">Gestionar Personal</string>
 </resources>
