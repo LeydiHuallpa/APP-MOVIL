@@ -24,7 +24,7 @@ public class EditarProductoModel implements EditarProductoInterface.Modelo {
     public void mtdOnEditarProducto(final Producto obj) {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        Query query = databaseReference.child("productos").orderByChild("nombreProducto").equalTo(obj.getNombreProductotmp());
+        Query query = databaseReference.child("productos").orderByChild("nombreProductotmp").equalTo(obj.getNombreProductotmp());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

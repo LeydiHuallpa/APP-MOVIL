@@ -55,6 +55,7 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
     EditarUnidadInterface.Presentador presentador;
     String nombrePlaca = "";
     Unidad unidadobj;
+    Spinner spinnerEstadoUnidad;
 
     public EditarUnidadFragment() {
     }
@@ -83,6 +84,7 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
         txtnombrePlaca = view.findViewById(R.id.txtnombrePlaca);
         txtNombreUnidad = view.findViewById(R.id.txtNombreUnidad);
         spinner = view.findViewById(R.id.spinner);
+        spinnerEstadoUnidad = view.findViewById(R.id.spinnerEstadoUnidad);
         nombrePlacaParametroEntrante();
 
         MaterialDialog.Builder builder = new MaterialDialog.Builder(getActivity())
@@ -145,6 +147,18 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
                 txtnombrePlaca.setText(unidadobj.getNombrePlaca());
                 txtNombreUnidad.setText(unidadobj.getNombreUnidad());
                 spinner.setSelection(obtenerPosicionArrayZonas(unidadobj.getZonaUnidad()));
+
+                switch (unidadobj.getEstadoPersonas()){
+                    case "Verde":
+                        spinnerEstadoUnidad.setSelection(0);
+                        break;
+                    case "Amarillo":
+                        spinnerEstadoUnidad.setSelection(1);
+                        break;
+                    case "Rojo":
+                        spinnerEstadoUnidad.setSelection(2);
+                        break;
+                }
             }
 
             @Override
@@ -212,7 +226,7 @@ public class EditarUnidadFragment extends Fragment implements EditarUnidadInterf
                     @Override
                     public void onSuccess(Uri uri) {
                         objunidad.setFotoReferencial(String.valueOf(uri));
-                        objunidad.setEstadoPersonas(unidadobj.getEstadoPersonas());
+                        objunidad.setEstadoPersonas(spinnerEstadoUnidad.getSelectedItem().toString());
                         objunidad.setNombrePlacatmp(unidadobj.getNombrePlacatmp());
                         presentador.mtdOnEditar(objunidad);
                     }

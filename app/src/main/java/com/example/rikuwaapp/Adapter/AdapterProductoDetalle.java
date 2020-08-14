@@ -20,13 +20,7 @@ public class AdapterProductoDetalle extends RecyclerView.Adapter<AdapterProducto
     private Context context;
     private List<Producto> listProducto;
 
-    private EventoClick eventoClick;
-
-    public interface EventoClick {
-        void onItemClick(ViewHolder holder, int posicion);
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView ImageProducto;
         TextView txtPrecioProducto;
@@ -35,19 +29,12 @@ public class AdapterProductoDetalle extends RecyclerView.Adapter<AdapterProducto
             super(itemView);
             ImageProducto = itemView.findViewById(R.id.ImageProducto);
             txtPrecioProducto = itemView.findViewById(R.id.txtPrecioProducto);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            eventoClick.onItemClick(this, getAdapterPosition());
         }
     }
 
     public AdapterProductoDetalle(List<Producto> listProductoes, Context context) {
         this.listProducto = listProductoes;
         this.context = context;
-//        this.eventoClick = click;
     }
 
     @Override

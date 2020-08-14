@@ -63,6 +63,18 @@
         android:layout_height="wrap_content"
         android:entries="@array/zona"/>
 
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecciona estado de unidad" />
+
+    <Spinner
+        android:id="@+id/spinnerEstadoUnidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/tipoEstadoUnidad"/>
+
     <Button
         android:id="@+id/btnEditar"
         android:layout_marginTop="50dp"

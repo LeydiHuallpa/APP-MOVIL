@@ -58,6 +58,27 @@
             android:textColor="#fff"
             android:textColorHint="#ccc" />
 
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="SELECCIONAR TIPO USUARIO" />
+
+        <Spinner
+            android:id="@+id/spinner_tipousuario"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:entries="@array/tipoUsuario"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
         <Button
             android:id="@+id/btn_ir_crearCuenta"
             android:layout_width="match_parent"

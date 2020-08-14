@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.rikuwaapp.Adapter.AdapterHorario;
 import com.example.rikuwaapp.Adapter.AdapterUnidad;
 import com.example.rikuwaapp.Config.Helper;
+import com.example.rikuwaapp.Entidad.Horario;
 import com.example.rikuwaapp.Entidad.Unidad;
 import com.example.rikuwaapp.R;
 import com.example.rikuwaapp.Vista.Fragment.EditarHorarioFragment;
@@ -26,12 +28,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HorariosActivity extends AppCompatActivity implements AdapterUnidad.EventoClick {
+public class HorariosActivity extends AppCompatActivity implements AdapterHorario.EventoClick {
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-    List<Unidad> unidadList;
+    List<Horario> horarioList;
     DatabaseReference databaseReference;
 
     @Override
@@ -43,22 +45,21 @@ public class HorariosActivity extends AppCompatActivity implements AdapterUnidad
 
     private void setViews() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        unidadList = new ArrayList<>();
-        listarUnidads();
+        horarioList = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_horario);
+        listarHorarios();
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new AdapterUnidad(unidadList, this, this);
+        adapter = new AdapterHorario(horarioList, this, this);
         recyclerView.setAdapter(adapter);
     }
-
-    private void listarUnidads() {
-        databaseReference.child("unidad").addValueEventListener(new ValueEventListener() {
+    private void listarHorarios(){
+        databaseReference.child("Horarios").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                unidadList.clear();
+                horarioList.clear();
                 for (DataSnapshot obj : snapshot.getChildren()) {
-                    unidadList.add(obj.getValue(Unidad.class));
+                    horarioList.add(obj.getValue(Horario.class));
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -70,9 +71,27 @@ public class HorariosActivity extends AppCompatActivity implements AdapterUnidad
         });
     }
 
+//    private void listarUnidads() {
+//        databaseReference.child("unidad").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                horarioList.clear();
+//                for (DataSnapshot obj : snapshot.getChildren()) {
+//                    horarioList.add(obj.getValue(Unidad.class));
+//                }
+//                adapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
+
     @Override
-    public void onItemClick(AdapterUnidad.ViewHolder holder, int posicion) {
-        String nombreUnidad = unidadList.get(posicion).getNombreUnidad();
+    public void onItemClick(AdapterHorario.ViewHolder holder, int posicion) {
+        String nombreUnidad = horarioList.get(posicion).getNombreUnidad();
         Intent i = new Intent(HorariosActivity.this, HorarioDetalleActivity.class);
         i.putExtra("nombreUnidad", nombreUnidad);
         startActivity(i);

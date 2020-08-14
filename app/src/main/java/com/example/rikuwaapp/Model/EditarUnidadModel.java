@@ -28,7 +28,7 @@ public class EditarUnidadModel implements EditarUnidadInterface.Modelo {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         //nombrePlaca
-        Query query = databaseReference.child("unidad").orderByChild("nombrePlaca").equalTo(obj.getNombrePlacatmp());
+        Query query = databaseReference.child("unidad").orderByChild("nombrePlacatmp").equalTo(obj.getNombrePlacatmp());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

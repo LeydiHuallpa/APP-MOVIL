@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.rikuwaapp.Adapter.AdapterProductoDetalle;
 import com.example.rikuwaapp.Adapter.AdapterUnidad;
@@ -63,7 +64,9 @@ public class ProductosDetalleActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot obj : snapshot.getChildren()) {
                     productoList.add(obj.getValue(Producto.class));
+                    Toast.makeText(ProductosDetalleActivity.this, obj.getValue(Producto.class).getImagenReferencial(), Toast.LENGTH_SHORT).show();
                 }
+                Toast.makeText(ProductosDetalleActivity.this, String.valueOf(productoList.size()), Toast.LENGTH_SHORT).show();
                 adapter.notifyDataSetChanged();
             }
 
